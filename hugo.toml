@@ -8,7 +8,7 @@ enableRobotsTXT = true
   auteur = "J-C. Baptiste"
   auteurComplet = "Jean-Christophe Baptiste"
   # Adresse de contact affichée sur la page À propos. Vide : la ligne n'apparaît pas.
-  courriel = ""
+  courriel = "photo@jcbaptiste.com"
   instagram = "https://www.instagram.com/jc.baptiste/"
 
 # Trois langues : le français à la racine, l'anglais sous /en/, le japonais sous /ja/.

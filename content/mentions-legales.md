@@ -6,6 +6,7 @@ slug: "mentions-legales"
 ## Éditeur
 
 Jean-Christophe Baptiste, à titre personnel et non professionnel.
+Contact : [photo@jcbaptiste.com](mailto:photo@jcbaptiste.com)
 
 ## Hébergement
 

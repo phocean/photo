@@ -34,4 +34,4 @@ Maquettes : canevas https://claude.ai/artifact/UBEFzqetzTcSiisdTrTmLa (privé).
 
 ## Encore ouvert
 
-- Textes : phrases d'intention des séries, courriel de contact, hébergeur pour les mentions légales.
+- Textes : phrases d'intention des séries.

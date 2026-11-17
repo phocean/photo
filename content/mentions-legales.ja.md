@@ -6,6 +6,7 @@ slug: "legal-notice"
 ## 運営者
 
 Jean-Christophe Baptiste（個人・非営利）
+連絡先：[photo@jcbaptiste.com](mailto:photo@jcbaptiste.com)
 
 ## ホスティング
 

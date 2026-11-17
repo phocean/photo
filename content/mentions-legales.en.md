@@ -6,6 +6,7 @@ slug: "legal-notice"
 ## Publisher
 
 Jean-Christophe Baptiste, in a personal, non-professional capacity.
+Contact: [photo@jcbaptiste.com](mailto:photo@jcbaptiste.com)
 
 ## Hosting
 
