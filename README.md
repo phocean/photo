@@ -68,3 +68,7 @@ Puis ouvrir http://localhost:1313. Le site se recharge à chaque modification.
 Chaque envoi sur la branche `main` de GitHub construit et publie le site (`.github/workflows/pages.yml`).
 À faire une fois : dans les réglages du dépôt, *Pages* → source « GitHub Actions » et domaine `photo.jcbaptiste.com` ;
 chez le registraire, un enregistrement DNS `CNAME photo` → `<compte>.github.io`.
+
+L'ancien domaine `photo.phocean.net` (SmugMug) redirige vers ce site. La redirection est publiée par un dépôt à part,
+[phocean/photo-phocean-net](https://github.com/phocean/photo-phocean-net) : GitHub Pages n'accepte qu'un domaine par dépôt.
+Les anciennes galeries qui ont une série équivalente y mènent directement, toutes les autres adresses mènent à l'accueil.
