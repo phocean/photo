@@ -1,5 +1,6 @@
 ---
 title: "Mentions légales"
+slug: "mentions-legales"
 ---
 
 ## Éditeur
@@ -16,4 +17,4 @@ Toutes les photographies de ce site sont protégées par le droit d'auteur. Tout
 
 ## Données personnelles et cookies
 
-Ce site ne dépose aucun cookie et ne mesure pas l'audience. Le seul élément conservé dans votre navigateur est votre choix de thème (clair ou sombre), qui ne quitte pas votre appareil.
+Ce site ne dépose aucun cookie et ne mesure pas l'audience. Les seuls éléments conservés dans votre navigateur sont vos choix de thème (clair ou sombre) et de langue, qui ne quittent pas votre appareil.

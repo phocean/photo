@@ -1,6 +1,7 @@
 ---
 title: "La rue en France"
-# Ordre sur l'accueil (du plus petit au plus grand).
+slug: "la-rue-en-france"
+# Ordre sur l'accueil (du plus petit au plus grand), identique dans les trois langues.
 weight: 40
 # Phrase d'intention, facultative.
 intention: ""

@@ -1,20 +1,46 @@
 baseURL = "https://photo.jcbaptiste.com/"
-locale = "fr-FR"
 defaultContentLanguage = "fr"
-title = "J-C. Baptiste — photographies"
+defaultContentLanguageInSubdir = false
 disableKinds = ["taxonomy", "term", "RSS"]
 enableRobotsTXT = true
 
 [params]
   auteur = "J-C. Baptiste"
   auteurComplet = "Jean-Christophe Baptiste"
-  description = "Photographies de J-C. Baptiste : arbres, paysages, animaux sauvages, la rue en France et au Japon."
   # Adresse de contact affichée sur la page À propos. Vide : la ligne n'apparaît pas.
   courriel = ""
   instagram = "https://www.instagram.com/jc.baptiste/"
 
+# Trois langues : le français à la racine, l'anglais sous /en/, le japonais sous /ja/.
+# Une page se traduit par un fichier voisin : arbres.md, arbres.en.md, arbres.ja.md.
+[languages]
+  [languages.fr]
+    weight = 1
+    label = "Français"
+    locale = "fr-FR"
+    title = "J-C. Baptiste — photographies"
+    [languages.fr.params]
+      court = "FR"
+      description = "Photographies de J-C. Baptiste : arbres, paysages, animaux sauvages, la rue en France et au Japon."
+  [languages.en]
+    weight = 2
+    label = "English"
+    locale = "en-GB"
+    title = "J-C. Baptiste — photography"
+    [languages.en.params]
+      court = "EN"
+      description = "Photographs by J-C. Baptiste: trees, landscapes, wildlife, the streets of France and Japan."
+  [languages.ja]
+    weight = 3
+    label = "日本語"
+    locale = "ja-JP"
+    title = "J-C. Baptiste — 写真"
+    [languages.ja.params]
+      court = "日本語"
+      description = "J-C. Baptiste の写真：木々、風景、野生動物、フランスと日本の街角。"
+
 [permalinks.page]
-  series = "/:contentbasename/"
+  series = "/:slug/"
 
 # Les albums d'exportation d'Aster (un dossier d'images par série) servent de ressources d'images :
 # Hugo n'en publie que les versions qu'il calcule, jamais les fichiers d'origine.

@@ -1,6 +1,7 @@
 ---
 title: "La rue au Japon"
-# Ordre sur l'accueil (du plus petit au plus grand).
+slug: "la-rue-au-japon"
+# Ordre sur l'accueil (du plus petit au plus grand), identique dans les trois langues.
 weight: 50
 # Phrase d'intention, facultative.
 intention: ""

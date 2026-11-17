@@ -32,11 +32,12 @@ Les photos s'affichent **dans l'ordre alphabétique des noms de fichier**. Le si
 ## Ajouter une série
 
 1. Créer l'album d'exportation dans Aster vers `albums/ma-serie/` et y envoyer les photos.
-2. Copier un fichier existant de `content/series/` en `ma-serie.md` et adapter :
+2. Copier un fichier existant de `content/series/` en `ma-serie.md` (et ses traductions `.en.md`, `.ja.md`) et adapter :
 
 ```yaml
 ---
 title: "Ma série"
+slug: "ma-serie"      # adresse de la série dans cette langue
 weight: 70            # ordre sur l'accueil
 intention: ""         # phrase facultative sous le titre
 couverture: ""        # fichier de albums/ma-serie/ ; vide : la première photo
@@ -44,6 +45,15 @@ titres:               # facultatif
   "_JCB4103.jpg": "Symétries"
 ---
 ```
+
+## Langues
+
+Le site existe en français (à la racine), en anglais (`/en/`) et en japonais (`/ja/`).
+
+- Chaque page se traduit par un fichier voisin : `arbres.md`, `arbres.en.md`, `arbres.ja.md`. Le champ `slug` donne l'adresse dans chaque langue (`/en/trees/`).
+- Dans les fichiers de série traduits, garder le même `weight` et la même `couverture`, et traduire `title`, `intention` et `titres`.
+- Les textes de l'interface (menus, boutons, visionneuse) sont dans `i18n/fr.toml`, `en.toml`, `ja.toml`.
+- À l'arrivée sur le site, la langue du navigateur choisit la version (anglais si ce n'est ni le français ni le japonais). Un choix fait dans le sélecteur est mémorisé dans le navigateur et l'emporte ensuite.
 
 ## Voir le site en local
 

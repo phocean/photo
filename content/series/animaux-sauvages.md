@@ -1,6 +1,7 @@
 ---
 title: "Animaux sauvages"
-# Ordre sur l'accueil (du plus petit au plus grand).
+slug: "animaux-sauvages"
+# Ordre sur l'accueil (du plus petit au plus grand), identique dans les trois langues.
 weight: 30
 # Phrase d'intention, facultative.
 intention: ""

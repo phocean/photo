@@ -1,4 +1,6 @@
 <footer class="pied">
   <span>© {{ site.Params.auteur }}</span>
-  <a href="/mentions-legales/">Mentions légales</a>
+  {{- with site.GetPage "/mentions-legales" }}
+  <a href="{{ .RelPermalink }}">{{ i18n "mentionsLegales" }}</a>
+  {{- end }}
 </footer>

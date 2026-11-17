@@ -1,6 +1,7 @@
 ---
 title: "Arbres"
-# Ordre sur l'accueil (du plus petit au plus grand).
+slug: "arbres"
+# Ordre sur l'accueil (du plus petit au plus grand), identique dans les trois langues.
 weight: 10
 # Phrase d'intention, facultative.
 intention: ""

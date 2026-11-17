@@ -5,7 +5,7 @@
 {{ end }}
 
 {{ define "main" }}
-<h1 class="visuellement-cache">Séries</h1>
+<h1 class="visuellement-cache">{{ i18n "series" }}</h1>
 <ul class="series">
   {{- range (where site.RegularPages "Section" "series").ByWeight }}
   <li>

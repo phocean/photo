@@ -1,6 +1,7 @@
 ---
 title: "Paysages"
-# Ordre sur l'accueil (du plus petit au plus grand).
+slug: "paysages"
+# Ordre sur l'accueil (du plus petit au plus grand), identique dans les trois langues.
 weight: 20
 # Phrase d'intention, facultative.
 intention: ""

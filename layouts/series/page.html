@@ -11,9 +11,9 @@
   {{- end }}
 </div>
 
-<div class="grille" data-serie="{{ .Title }}">
+<div class="grille" data-serie="{{ .Title }}" data-visionneuse="{{ i18n "visionneuse" }}" data-fermer="{{ i18n "fermer" }}" data-precedente="{{ i18n "photoPrecedente" }}" data-suivante="{{ i18n "photoSuivante" }}">
   {{- range $i, $p := $photos }}
-  {{- $alt := $p.titre | default (printf "%s, photo %d sur %d" $.Title (add $i 1) (len $photos)) }}
+  {{- $alt := $p.titre | default (i18n "photoNumero" (dict "Serie" $.Title "Rang" (add $i 1) "Total" (len $photos))) }}
   <a class="case" href="{{ $p.grand.RelPermalink }}" style="{{ printf "--r:%.4f" $p.ratio | safeCSS }}"
      data-srcset="{{ $p.ecran.RelPermalink }} {{ $p.ecran.Width }}w, {{ $p.grand.RelPermalink }} {{ $p.grand.Width }}w"
      data-titre="{{ $p.titre }}" data-alt="{{ $alt }}">
@@ -28,15 +28,15 @@
 {{- $series := (where site.RegularPages "Section" "series").ByWeight }}
 {{- $rang := -1 }}
 {{- range $i, $s := $series }}{{ if eq $s.RelPermalink $.RelPermalink }}{{ $rang = $i }}{{ end }}{{ end }}
-<nav class="series-voisines" aria-label="Séries voisines">
+<nav class="series-voisines" aria-label="{{ i18n "seriesVoisines" }}">
   {{- if gt $rang 0 }}
   {{- with index $series (sub $rang 1) }}
-  <a href="{{ .RelPermalink }}" rel="prev"><span class="etiquette">Série précédente</span><span class="nom">← {{ .Title }}</span></a>
+  <a href="{{ .RelPermalink }}" rel="prev"><span class="etiquette">{{ i18n "seriePrecedente" }}</span><span class="nom">← {{ .Title }}</span></a>
   {{- end }}
   {{- else }}<span></span>{{ end }}
   {{- if lt (add $rang 1) (len $series) }}
   {{- with index $series (add $rang 1) }}
-  <a href="{{ .RelPermalink }}" rel="next" class="suivante"><span class="etiquette">Série suivante</span><span class="nom">{{ .Title }} →</span></a>
+  <a href="{{ .RelPermalink }}" rel="next" class="suivante"><span class="etiquette">{{ i18n "serieSuivante" }}</span><span class="nom">{{ .Title }} →</span></a>
   {{- end }}
   {{- end }}
 </nav>

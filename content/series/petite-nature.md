@@ -1,6 +1,7 @@
 ---
 title: "Petite nature"
-# Ordre sur l'accueil (du plus petit au plus grand).
+slug: "petite-nature"
+# Ordre sur l'accueil (du plus petit au plus grand), identique dans les trois langues.
 weight: 60
 # Phrase d'intention, facultative.
 intention: ""

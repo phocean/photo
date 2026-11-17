@@ -1,13 +1,25 @@
-{{- $series := or .IsHome (eq .Section "series") -}}
-{{- $apropos := eq .RelPermalink "/a-propos/" -}}
+{{- $apropos := site.GetPage "/a-propos" -}}
+{{- $surSeries := or .IsHome (eq .Section "series") -}}
+{{- $surApropos := and $apropos (eq .RelPermalink $apropos.RelPermalink) -}}
 <header class="entete">
-  <a class="logo" href="/">{{ site.Params.auteur }}</a>
-  <nav aria-label="Navigation principale">
-    <a href="/"{{ if $series }} aria-current="page"{{ end }}>Séries</a>
-    <a href="/a-propos/"{{ if $apropos }} aria-current="page"{{ end }}>À propos</a>
-    <a href="/a-propos/#contact">Contact</a>
-    <button type="button" class="bouton-theme" aria-label="Changer de thème" hidden>
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/></svg>
-    </button>
+  <a class="logo" href="{{ site.Home.RelPermalink }}">{{ site.Params.auteur }}</a>
+  <nav aria-label="{{ i18n "navigationPrincipale" }}">
+    <a href="{{ site.Home.RelPermalink }}"{{ if $surSeries }} aria-current="page"{{ end }}>{{ i18n "series" }}</a>
+    {{- with $apropos }}
+    <a href="{{ .RelPermalink }}"{{ if $surApropos }} aria-current="page"{{ end }}>{{ i18n "aPropos" }}</a>
+    <a href="{{ .RelPermalink }}#contact">{{ i18n "contact" }}</a>
+    {{- end }}
+    <span class="reglages">
+      {{- if gt (len .AllTranslations) 1 }}
+      <span class="langues" role="group" aria-label="{{ i18n "choixLangue" }}">
+        {{- range .AllTranslations }}
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" data-langue="{{ .Language.Lang }}" title="{{ .Language.Label }}"{{ if eq .Language.Lang $.Language.Lang }} aria-current="true"{{ end }}>{{ .Language.Params.court }}</a>
+        {{- end }}
+      </span>
+      {{- end }}
+      <button type="button" class="bouton-theme" aria-label="{{ i18n "versSombre" }}" data-vers-clair="{{ i18n "versClair" }}" data-vers-sombre="{{ i18n "versSombre" }}" hidden>
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/></svg>
+      </button>
+    </span>
   </nav>
 </header>

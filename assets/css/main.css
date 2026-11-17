@@ -61,9 +61,12 @@ a:hover { opacity: .7; }
 }
 .entete { padding: 48px var(--marge) 56px; gap: 16px 40px; align-items: center; }
 .logo { font-family: var(--serif); font-size: 34px; font-weight: 500; letter-spacing: .01em; line-height: 1.1; }
-.entete nav { display: flex; align-items: center; gap: 32px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+.entete nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
 .entete nav a { color: var(--discret); padding: 12px 0; }
-.entete nav a[aria-current="page"] { color: var(--texte); }
+.entete nav a[aria-current] { color: var(--texte); }
+.reglages { display: flex; align-items: center; gap: 24px; }
+.langues { display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: .1em; }
+.langues a[lang="ja"] { letter-spacing: .04em; }
 .bouton-theme {
   width: 44px; height: 44px; margin: 0 -12px 0 -8px; padding: 0; border: 0; background: transparent;
   color: var(--discret); cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -145,6 +148,21 @@ a:hover { opacity: .7; }
 .visionneuse button[disabled] { visibility: hidden; }
 .visionneuse :focus-visible { outline-color: #EDEDEA; }
 
+/* Japonais : les caractères latins restent en Cormorant et Inter ; kanji et kana viennent des polices du système.
+   Le mincho est plus massif que le Cormorant à taille égale, et l'italique n'existe pas en japonais. */
+html:lang(ja) {
+  --serif: "Cormorant Garamond", "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", "Noto Serif CJK JP", serif;
+  --sans: Inter, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, "Noto Sans JP", "Noto Sans CJK JP", system-ui, sans-serif;
+  line-break: strict;
+}
+html:lang(ja) .entete nav { letter-spacing: .06em; }
+html:lang(ja) .serie-tete h1, html:lang(ja) .page-texte h1, html:lang(ja) .a-propos h1 { font-size: 42px; line-height: 1.3; }
+html:lang(ja) .titre-serie, html:lang(ja) .series-voisines .nom { font-size: 20px; }
+html:lang(ja) .intention, html:lang(ja) .v-titre { font-style: normal; font-size: 17px; }
+html:lang(ja) .a-propos .texte p, html:lang(ja) .page-texte p { font-size: 17px; line-height: 2; }
+html:lang(ja) .a-propos h2, html:lang(ja) .page-texte h2 { font-size: 26px; }
+html:lang(ja) .etiquette { letter-spacing: .06em; }
+
 /* Tablette */
 @media (max-width: 1000px) {
   .series { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -156,7 +174,9 @@ a:hover { opacity: .7; }
   :root { --marge: 24px; --hauteur-ligne: 120px; }
   .entete { padding: 28px var(--marge) 24px; flex-direction: column; align-items: flex-start; gap: 6px; }
   .logo { font-size: 30px; }
-  .entete nav { gap: 24px; font-size: 12px; }
+  .entete nav { gap: 0 20px; font-size: 12px; }
+  .reglages { gap: 16px; }
+  html:lang(ja) .serie-tete h1, html:lang(ja) .page-texte h1, html:lang(ja) .a-propos h1 { font-size: 32px; }
   .series { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .titre-serie { font-size: 24px; }
   .grille { gap: 6px; }

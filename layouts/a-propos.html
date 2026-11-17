@@ -3,8 +3,8 @@
   <div class="texte">
     <h1>{{ .Title }}</h1>
     {{ .Content }}
-    <h2 id="contact">Contact</h2>
-    <p class="discret">Commentaires et suggestions sont les bienvenus.</p>
+    <h2 id="contact">{{ i18n "contact" }}</h2>
+    <p class="discret">{{ i18n "bienvenue" }}</p>
     <ul class="liens-contact">
       {{- with site.Params.courriel }}
       <li><a href="mailto:{{ . }}">{{ . }}</a></li>

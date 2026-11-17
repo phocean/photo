@@ -5,16 +5,17 @@
   const cases = [...grille.querySelectorAll("a.case")];
   if (!cases.length || typeof HTMLDialogElement === "undefined") return;
 
+  // Les libellés viennent de la page, dans sa langue.
+  const libelles = grille.dataset;
   const icone = (d) => `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="${d}"/></svg>`;
   const v = document.createElement("dialog");
   v.className = "visionneuse";
-  v.setAttribute("aria-label", "Visionneuse");
   v.innerHTML = `
-    <div class="v-haut"><span class="v-serie"></span><button type="button" class="v-fermer" aria-label="Fermer">${icone("M5 5l14 14M19 5L5 19")}</button></div>
+    <div class="v-haut"><span class="v-serie"></span><button type="button" class="v-fermer">${icone("M5 5l14 14M19 5L5 19")}</button></div>
     <div class="v-centre">
-      <button type="button" class="v-prec" aria-label="Photo précédente">${icone("M15 4l-8 8 8 8")}</button>
+      <button type="button" class="v-prec">${icone("M15 4l-8 8 8 8")}</button>
       <figure><img alt=""></figure>
-      <button type="button" class="v-suiv" aria-label="Photo suivante">${icone("M9 4l8 8-8 8")}</button>
+      <button type="button" class="v-suiv">${icone("M9 4l8 8-8 8")}</button>
     </div>
     <div class="v-bas"><span class="v-titre"></span><span class="v-compte" aria-live="polite"></span></div>`;
   document.body.append(v);
@@ -22,7 +23,11 @@
   const img = v.querySelector("img");
   const prec = v.querySelector(".v-prec");
   const suiv = v.querySelector(".v-suiv");
-  v.querySelector(".v-serie").textContent = grille.dataset.serie || "";
+  v.setAttribute("aria-label", libelles.visionneuse || "");
+  v.querySelector(".v-fermer").setAttribute("aria-label", libelles.fermer || "");
+  prec.setAttribute("aria-label", libelles.precedente || "");
+  suiv.setAttribute("aria-label", libelles.suivante || "");
+  v.querySelector(".v-serie").textContent = libelles.serie || "";
   let rang = 0;
 
   const precharger = (i) => {

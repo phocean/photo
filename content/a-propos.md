@@ -1,5 +1,6 @@
 ---
 title: "À propos"
+slug: "a-propos"
 layout: "a-propos"
 # Photo affichée à côté du texte : « album/fichier.jpg ». Vide : aucune.
 photo: "arbres/02-9a7d756e.jpg"
