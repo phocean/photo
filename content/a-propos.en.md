@@ -10,3 +10,5 @@ I am an amateur photographer living in France.
 Without wishing to limit myself to any one genre, I have a particular interest in landscapes and nature, and in the street when I travel.
 
 I try to publish here only what I believe to be my best photographs.
+
+The photographs on this site are developed with [Aster](https://aster.jcbaptiste.com/), the Mac photo editing app I design.

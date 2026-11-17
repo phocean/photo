@@ -1,5 +1,6 @@
 /* Site photo J-C. Baptiste — direction A (docs/design.md) */
 
+@font-face { font-family: "Allura"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/allura-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url("/fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2"); }
@@ -60,7 +61,8 @@ a:hover { opacity: .7; }
   display: flex; flex-wrap: wrap; justify-content: space-between;
 }
 .entete { padding: 48px var(--marge) 56px; gap: 16px 40px; align-items: center; }
-.logo { font-family: var(--serif); font-size: 34px; font-weight: 500; letter-spacing: .01em; line-height: 1.1; }
+/* Nom en Allura, la police manuscrite du logo de l'ancien portfolio Adobe. */
+.logo { font-family: "Allura", var(--serif); font-size: 46px; font-weight: 400; line-height: 1; }
 .entete nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
 .entete nav a { color: var(--discret); padding: 12px 0; }
 .entete nav a[aria-current] { color: var(--texte); }
@@ -118,7 +120,7 @@ a:hover { opacity: .7; }
 .a-propos h2, .page-texte h2 { font-family: var(--serif); font-size: 36px; font-weight: 400; margin: 56px 0 0; line-height: 1.2; }
 .a-propos .discret { font-family: var(--sans); font-size: 16px; color: var(--discret); }
 .liens-contact { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; }
-.liens-contact a, .page-texte a { text-decoration: underline; text-underline-offset: 4px; }
+.liens-contact a, .page-texte a, .a-propos .texte p a { text-decoration: underline; text-underline-offset: 4px; }
 .a-propos .photo { flex: 1 1 360px; min-width: 0; max-width: 520px; }
 .a-propos .photo img { display: block; width: 100%; }
 .page-texte { max-width: 720px; padding-top: 24px; }
@@ -175,7 +177,7 @@ html:lang(ja) .etiquette { letter-spacing: .06em; }
   /* 120 px : une verticale et une horizontale tiennent ensemble sur une ligne, aucune verticale ne reste seule. */
   :root { --marge: 24px; --hauteur-ligne: 120px; }
   .entete { padding: 28px var(--marge) 24px; flex-direction: column; align-items: flex-start; gap: 6px; }
-  .logo { font-size: 30px; }
+  .logo { font-size: 40px; }
   .entete nav { gap: 0 20px; font-size: 12px; }
   .reglages { gap: 16px; }
   .reglages::before { display: none; } /* les réglages passent sur leur propre ligne */

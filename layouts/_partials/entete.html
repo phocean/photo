@@ -7,7 +7,6 @@
     <a href="{{ site.Home.RelPermalink }}"{{ if $surSeries }} aria-current="page"{{ end }}>{{ i18n "series" }}</a>
     {{- with $apropos }}
     <a href="{{ .RelPermalink }}"{{ if $surApropos }} aria-current="page"{{ end }}>{{ i18n "aPropos" }}</a>
-    <a href="{{ .RelPermalink }}#contact">{{ i18n "contact" }}</a>
     {{- end }}
     <span class="reglages">
       {{- if gt (len .AllTranslations) 1 }}

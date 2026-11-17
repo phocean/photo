@@ -9,7 +9,8 @@ Maquettes : canevas https://claude.ai/artifact/UBEFzqetzTcSiisdTrTmLa (privé).
 | Orientation | Artistique : ni EXIF, ni infos techniques, ni haute résolution | 17/11/2026 |
 | Direction | **A — galerie claire**, dans l'esprit du portfolio Adobe | 17/11/2026 |
 | Accueil | Grille de **3 colonnes**, vignettes **4:3** (format du boîtier), titre de série dessous | 17/11/2026 |
-| Typographie | Classique et élégante : **Cormorant Garamond** (logo, titres, textes) + **Inter** (navigation, mentions) | 17/11/2026 |
+| Typographie | Classique et élégante : **Cormorant Garamond** (titres, textes) + **Inter** (navigation, mentions) | 17/11/2026 |
+| Nom (logo) | **Allura**, la police manuscrite du logo de l'ancien portfolio Adobe | 17/11/2026 |
 | Langues | **Français, anglais, japonais**, interface comprise. Adresses : `/`, `/en/…`, `/ja/…`. À l'arrivée, la langue du navigateur choisit la version (anglais si aucune des trois) ; un choix fait dans le sélecteur « FR · EN · 日本語 » est mémorisé et l'emporte ensuite | 17/11/2026 |
 | Typographie japonaise | Latin en Cormorant / Inter, kanji et kana en polices du système (Hiragino, Yu Mincho, Noto) ; tailles réduites, pas d'italique | 17/11/2026 |
 | Thème | **Clair et sombre** : suit le réglage du système du visiteur, bouton discret dans la navigation pour basculer (choix mémorisé) ; la visionneuse reste toujours sur fond noir | 17/11/2026 |
@@ -28,7 +29,7 @@ Maquettes : canevas https://claude.ai/artifact/UBEFzqetzTcSiisdTrTmLa (privé).
 - Thème sombre : fond `#121212`, texte `#EDEDEA`, gris `#9E9E9A`, filets `#2A2A2A`.
 - Visionneuse : fond `#0B0B0B`.
 - Largeur utile 1312 px, marges 32 px.
-- Navigation : Séries · À propos · Contact, en capitales espacées.
+- Navigation : Séries · À propos, en capitales espacées (le contact est une rubrique de la page À propos, qui renvoie aussi vers Aster).
 - Visionneuse plein écran sur fond noir : flèches, fermeture, « n / total », titre éventuel.
 - Pied de page : © J-C. Baptiste · Mentions légales.
 
