@@ -1,0 +1,23 @@
+{{- /*
+  Les photos d'une série, dans l'ordre des noms de fichier, depuis albums/<nom de la série>/.
+  Pour chacune : les versions calculées pour la grille et la visionneuse, la proportion et le titre éventuel.
+  Les fichiers d'origine ne sont jamais publiés : seules ces versions recalculées le sont, sans métadonnées.
+*/ -}}
+{{- $album := .File.ContentBaseName -}}
+{{- $titres := .Params.titres | default dict -}}
+{{- $photos := slice -}}
+{{- $fichiers := resources.Match (printf "albums/%s/*.{jpg,jpeg,png,tif,tiff}" $album) -}}
+{{- range sort $fichiers "Name" -}}
+  {{- $nom := path.Base .Name -}}
+  {{- $titre := or (index $titres $nom) (index $titres (lower $nom)) "" -}}
+  {{- $photos = $photos | append (dict
+      "nom" $nom
+      "original" .
+      "ratio" (div (float .Width) .Height)
+      "petit" (.Resize "x360 webp")
+      "moyen" (.Resize "x720 webp")
+      "ecran" (.Fit "1280x1280 webp")
+      "grand" (.Fit "2048x2048 webp")
+      "titre" $titre) -}}
+{{- end -}}
+{{- return $photos -}}

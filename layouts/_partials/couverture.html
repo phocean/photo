@@ -1,0 +1,16 @@
+{{- /* Vignette 4:3 d'une série : la photo nommée dans « couverture », sinon la première de l'album. */ -}}
+{{- $album := .File.ContentBaseName -}}
+{{- $image := "" -}}
+{{- with .Params.couverture -}}
+  {{- $image = resources.Get (printf "albums/%s/%s" $album .) -}}
+{{- end -}}
+{{- if not $image -}}
+  {{- with sort (resources.Match (printf "albums/%s/*.{jpg,jpeg,png,tif,tiff}" $album)) "Name" -}}
+    {{- $image = index . 0 -}}
+  {{- end -}}
+{{- end -}}
+{{- $resultat := dict -}}
+{{- with $image -}}
+  {{- $resultat = dict "petite" (.Fill "600x450 webp Smart") "grande" (.Fill "1200x900 webp Smart") -}}
+{{- end -}}
+{{- return $resultat -}}

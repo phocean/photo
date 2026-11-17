@@ -1,0 +1,19 @@
+---
+title: "Mentions légales"
+---
+
+## Éditeur
+
+Jean-Christophe Baptiste, à titre personnel et non professionnel.
+
+## Hébergement
+
+GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.
+
+## Droits
+
+Toutes les photographies de ce site sont protégées par le droit d'auteur. Toute reproduction ou utilisation sans autorisation écrite est interdite.
+
+## Données personnelles et cookies
+
+Ce site ne dépose aucun cookie et ne mesure pas l'audience. Le seul élément conservé dans votre navigateur est votre choix de thème (clair ou sombre), qui ne quitte pas votre appareil.

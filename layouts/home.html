@@ -1,0 +1,22 @@
+{{ define "og-image" }}
+  {{- with index (where site.RegularPages "Section" "series").ByWeight 0 }}
+    {{- with (partial "couverture.html" .).grande }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}
+  {{- end }}
+{{ end }}
+
+{{ define "main" }}
+<h1 class="visuellement-cache">Séries</h1>
+<ul class="series">
+  {{- range (where site.RegularPages "Section" "series").ByWeight }}
+  <li>
+    <a href="{{ .RelPermalink }}">
+      {{- $c := partial "couverture.html" . }}
+      {{- with $c.petite }}
+      <img src="{{ .RelPermalink }}" srcset="{{ .RelPermalink }} {{ .Width }}w, {{ $c.grande.RelPermalink }} {{ $c.grande.Width }}w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 420px" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy" decoding="async">
+      {{- end }}
+      <span class="titre-serie">{{ .Title }}</span>
+    </a>
+  </li>
+  {{- end }}
+</ul>
+{{ end }}

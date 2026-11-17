@@ -1,0 +1,13 @@
+{{- $series := or .IsHome (eq .Section "series") -}}
+{{- $apropos := eq .RelPermalink "/a-propos/" -}}
+<header class="entete">
+  <a class="logo" href="/">{{ site.Params.auteur }}</a>
+  <nav aria-label="Navigation principale">
+    <a href="/"{{ if $series }} aria-current="page"{{ end }}>Séries</a>
+    <a href="/a-propos/"{{ if $apropos }} aria-current="page"{{ end }}>À propos</a>
+    <a href="/a-propos/#contact">Contact</a>
+    <button type="button" class="bouton-theme" aria-label="Changer de thème" hidden>
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/></svg>
+    </button>
+  </nav>
+</header>

@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="a-propos">
+  <div class="texte">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    <h2 id="contact">Contact</h2>
+    <p class="discret">Commentaires et suggestions sont les bienvenus.</p>
+    <ul class="liens-contact">
+      {{- with site.Params.courriel }}
+      <li><a href="mailto:{{ . }}">{{ . }}</a></li>
+      {{- end }}
+      {{- with site.Params.instagram }}
+      <li><a href="{{ . }}" rel="me">Instagram</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- with .Params.photo }}
+  {{- with resources.Get (printf "albums/%s" .) }}
+  {{- $p := .Resize "720x webp" }}
+  {{- $g := .Resize "1200x webp" }}
+  <div class="photo">
+    <img src="{{ $p.RelPermalink }}" srcset="{{ $p.RelPermalink }} {{ $p.Width }}w, {{ $g.RelPermalink }} {{ $g.Width }}w" sizes="(max-width: 900px) 100vw, 520px" width="{{ $p.Width }}" height="{{ $p.Height }}" alt="" loading="lazy" decoding="async">
+  </div>
+  {{- end }}
+  {{- end }}
+</div>
+{{ end }}

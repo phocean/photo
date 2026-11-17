@@ -1,0 +1,14 @@
+# Sortie de Hugo
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Copies de référence des anciens sites (environ 1 Go de photos) : jamais dans le dépôt public
+ancien-site/
+ancien-site-phocean/
+
+# Réglages locaux de l'environnement de développement
+.claude/
+
+# macOS
+.DS_Store

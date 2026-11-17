@@ -1,0 +1,49 @@
+{{ define "og-image" }}
+  {{- with (partial "couverture.html" .).grande }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}
+{{ end }}
+
+{{ define "main" }}
+{{- $photos := partial "photos-serie.html" . }}
+<div class="serie-tete">
+  <h1>{{ .Title }}</h1>
+  {{- with .Params.intention }}
+  <p class="intention">{{ . }}</p>
+  {{- end }}
+</div>
+
+<div class="grille" data-serie="{{ .Title }}">
+  {{- range $i, $p := $photos }}
+  {{- $alt := $p.titre | default (printf "%s, photo %d sur %d" $.Title (add $i 1) (len $photos)) }}
+  <a class="case" href="{{ $p.grand.RelPermalink }}" style="{{ printf "--r:%.4f" $p.ratio | safeCSS }}"
+     data-srcset="{{ $p.ecran.RelPermalink }} {{ $p.ecran.Width }}w, {{ $p.grand.RelPermalink }} {{ $p.grand.Width }}w"
+     data-titre="{{ $p.titre }}" data-alt="{{ $alt }}">
+    <img src="{{ $p.petit.RelPermalink }}"
+         srcset="{{ $p.petit.RelPermalink }} {{ $p.petit.Width }}w, {{ $p.moyen.RelPermalink }} {{ $p.moyen.Width }}w"
+         sizes="(max-width: 600px) {{ math.Round (mul $p.ratio 200) }}px, {{ math.Round (mul $p.ratio 380) }}px"
+         width="{{ $p.petit.Width }}" height="{{ $p.petit.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+  </a>
+  {{- end }}
+</div>
+
+{{- $series := (where site.RegularPages "Section" "series").ByWeight }}
+{{- $rang := -1 }}
+{{- range $i, $s := $series }}{{ if eq $s.RelPermalink $.RelPermalink }}{{ $rang = $i }}{{ end }}{{ end }}
+<nav class="series-voisines" aria-label="Séries voisines">
+  {{- if gt $rang 0 }}
+  {{- with index $series (sub $rang 1) }}
+  <a href="{{ .RelPermalink }}" rel="prev"><span class="etiquette">Série précédente</span><span class="nom">← {{ .Title }}</span></a>
+  {{- end }}
+  {{- else }}<span></span>{{ end }}
+  {{- if lt (add $rang 1) (len $series) }}
+  {{- with index $series (add $rang 1) }}
+  <a href="{{ .RelPermalink }}" rel="next" class="suivante"><span class="etiquette">Série suivante</span><span class="nom">{{ .Title }} →</span></a>
+  {{- end }}
+  {{- end }}
+</nav>
+{{ end }}
+
+{{ define "scripts" }}
+  {{- with resources.Get "js/visionneuse.js" | minify | fingerprint }}
+  <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+  {{- end }}
+{{ end }}

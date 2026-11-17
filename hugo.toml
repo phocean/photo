@@ -1,0 +1,40 @@
+baseURL = "https://photo.jcbaptiste.com/"
+locale = "fr-FR"
+defaultContentLanguage = "fr"
+title = "J-C. Baptiste — photographies"
+disableKinds = ["taxonomy", "term", "RSS"]
+enableRobotsTXT = true
+
+[params]
+  auteur = "J-C. Baptiste"
+  auteurComplet = "Jean-Christophe Baptiste"
+  description = "Photographies de J-C. Baptiste : arbres, paysages, animaux sauvages, la rue en France et au Japon."
+  # Adresse de contact affichée sur la page À propos. Vide : la ligne n'apparaît pas.
+  courriel = ""
+  instagram = "https://www.instagram.com/jc.baptiste/"
+
+[permalinks.page]
+  series = "/:contentbasename/"
+
+# Les albums d'exportation d'Aster (un dossier d'images par série) servent de ressources d'images :
+# Hugo n'en publie que les versions qu'il calcule, jamais les fichiers d'origine.
+[[module.mounts]]
+  source = "assets"
+  target = "assets"
+[[module.mounts]]
+  source = "albums"
+  target = "assets/albums"
+
+[imaging]
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+[imaging.webp]
+  quality = 82
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML"]
