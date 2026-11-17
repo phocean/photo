@@ -3,14 +3,25 @@
   <div class="texte">
     <h1>{{ .Title }}</h1>
     {{ .Content }}
-    <h2 id="contact">{{ i18n "contact" }}</h2>
+    <h2 id="contact">{{ i18n "retrouvezMoi" }}</h2>
     <p class="discret">{{ i18n "bienvenue" }}</p>
     <ul class="liens-contact">
       {{- with site.Params.courriel }}
-      <li><a href="mailto:{{ . }}">{{ . }}</a></li>
+      <li><a href="mailto:{{ . }}">
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.75 6.5 12 13l8.25-6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <span>{{ . }}</span></a></li>
       {{- end }}
       {{- with site.Params.instagram }}
-      <li><a href="{{ . }}" rel="me">Instagram</a></li>
+      <li><a href="{{ . }}" rel="me">
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/></svg>
+        <span>@{{ strings.Trim (urls.Parse .).Path "/" }}</span><span class="visuellement-cache"> (Instagram)</span></a></li>
+      {{- end }}
+      {{- with or site.Language.Params.aster site.Params.aster }}
+      <li><a href="{{ . }}">
+        {{- with resources.Get "images/aster.png" }}{{ with .Resize "72x webp q90" }}
+        <img class="icone" src="{{ .RelPermalink }}" width="24" height="24" alt="">
+        {{- end }}{{ end }}
+        <span>{{ (urls.Parse .).Host }}</span><span class="visuellement-cache"> (Aster)</span></a></li>
       {{- end }}
     </ul>
   </div>

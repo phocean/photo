@@ -10,6 +10,8 @@ enableRobotsTXT = true
   # Adresse de contact affichée sur la page À propos. Vide : la ligne n'apparaît pas.
   courriel = "photo@jcbaptiste.com"
   instagram = "https://www.instagram.com/jc.baptiste/"
+  # Site d'Aster, l'application de retouche (le français a sa propre adresse, plus bas).
+  aster = "https://aster.jcbaptiste.com/"
 
 # Trois langues : le français à la racine, l'anglais sous /en/, le japonais sous /ja/.
 # Une page se traduit par un fichier voisin : arbres.md, arbres.en.md, arbres.ja.md.
@@ -20,6 +22,7 @@ enableRobotsTXT = true
     locale = "fr-FR"
     title = "J-C. Baptiste — photographies"
     [languages.fr.params]
+      aster = "https://aster.jcbaptiste.com/fr/"
       court = "FR"
       description = "Photographies de J-C. Baptiste : arbres, paysages, animaux sauvages, la rue en France et au Japon."
   [languages.en]
