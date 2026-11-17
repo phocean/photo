@@ -21,7 +21,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Installer Hugo
         run: |
@@ -31,13 +31,13 @@ jobs:
           hugo version
 
       # Les versions des photos déjà calculées sont gardées d'une publication à l'autre.
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: resources/_gen
           key: hugo-images-${{ hashFiles('albums/**', 'layouts/_partials/photos-serie.html', 'layouts/_partials/couverture.html', 'hugo.toml') }}
           restore-keys: hugo-images-
 
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
 
       - name: Construire
         run: hugo --gc --minify

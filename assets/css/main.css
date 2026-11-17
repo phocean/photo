@@ -65,6 +65,8 @@ a:hover { opacity: .7; }
 .entete nav a { color: var(--discret); padding: 12px 0; }
 .entete nav a[aria-current] { color: var(--texte); }
 .reglages { display: flex; align-items: center; gap: 24px; }
+/* Filet vertical entre le menu et les réglages (langues, thème) : même espace de part et d'autre. */
+.reglages::before { content: ""; width: 1px; height: 16px; margin-right: 8px; background: var(--discret); opacity: .5; }
 .langues { display: flex; align-items: center; gap: 14px; font-size: 12px; letter-spacing: .1em; }
 .langues a[lang="ja"] { letter-spacing: .04em; }
 .bouton-theme {
@@ -176,6 +178,7 @@ html:lang(ja) .etiquette { letter-spacing: .06em; }
   .logo { font-size: 30px; }
   .entete nav { gap: 0 20px; font-size: 12px; }
   .reglages { gap: 16px; }
+  .reglages::before { display: none; } /* les réglages passent sur leur propre ligne */
   html:lang(ja) .serie-tete h1, html:lang(ja) .page-texte h1, html:lang(ja) .a-propos h1 { font-size: 32px; }
   .series { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .titre-serie { font-size: 24px; }
